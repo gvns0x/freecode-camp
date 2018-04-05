@@ -1,0 +1,80 @@
+* {
+    font-family: 'Archivo Black', sans-serif;
+}
+
+.wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    display: flex;
+    width: 50%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.intro {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    z-index: 5;
+    width: 50%;
+    position: relative;
+    margin-bottom: 280px;
+}
+
+.title {
+    font-size: 16px;
+}
+
+.main-button {
+    background-color: red;
+    border: none;
+    font-size: 16px;
+    padding: 8px 12px;
+    display: flex;
+    width: 100px;
+    right: 0;
+    -moz-transform:rotate(-90deg);
+    -ms-transform:rotate(-90deg);
+    -o-transform:rotate(-90deg);
+    -webkit-transform:rotate(-90deg);
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: yellow;
+    height: 50px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.author {
+    display: none;
+    color:red;
+    font-size: 24px;
+    writing-mode: vertical-lr;
+}
+
+.quote {
+    display: none;
+    color:blue;
+    font-size: 36px;
+    font-style: italic;
+    margin-right: 24px;
+
+}
+
+.show {
+    display: flex;
+}
+
+.hide {
+    display: none;
+}
