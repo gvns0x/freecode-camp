@@ -1,11 +1,58 @@
+* {
+    margin: 0;
+    font-family: 'IBM Plex Mono', monospace;
+    color: #333333;
+}
+
 body {
     display: grid;
     grid-template-columns: 2fr 3fr 1fr 3fr 2fr;
+    background-color: #f8f8f8;
 }
 
 .input-card {
     grid-column: 2/3;
-    background-color: red;
+    background-color: #fff;
     display: flex;
     flex-direction: column;
+    border-radius: 2px;
+    box-shadow: 0px 2px 4px rgba(0,0,0,0.1);
+    padding: 24px;
+}
+
+.input-card__input {
+    font-size: 16px;
+    padding: 8px 12px;
+    border-radius: 2px;
+    border:2px dashed rgb(0,0,0,0.2);
+}
+
+.input-card__input::placeholder {
+    opacity: .3;
+}
+
+.input-card__input:nth-of-type(1) {
+    margin-bottom: 16px;
+}
+
+.input-card__title {
+    margin-bottom: 16px;
+}
+
+.input-card__label {
+    margin-bottom: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #797979;
+}
+
+.input-card__button {
+    margin-top: 24px;
+    padding: 8px 12px;
+    font-size: 16px;
+    border: none;
+    background-color:  rgb(54, 194, 147);
+    cursor: pointer;
+    color: #fff;
+    border-radius: 2px;
 }
