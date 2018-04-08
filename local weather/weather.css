@@ -104,7 +104,12 @@ body {
 }
 
 .weather-card__location__temp__switch {
-    height: 50px;
+    padding: 8px 12px;
+    font-size: 12px;
+    cursor: pointer;
+    border: none;
+    background-color: rgb(255, 200, 97);
+    border-radius: 2px;
 }
 
 .weather-card__location__temp__othertemp {
