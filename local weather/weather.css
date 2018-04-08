@@ -56,3 +56,7 @@ body {
     color: #fff;
     border-radius: 2px;
 }
+
+.input-card__label__error {
+    color: red;
+}
