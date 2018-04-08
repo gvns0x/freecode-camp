@@ -1,6 +1,7 @@
 let coordValues = document.getElementsByClassName("input-card__input");
 let submitBtn = document.getElementsByClassName("input-card__button");
-let inputLabel = document.getElementsByClassName("input-card__label");
+let inputLabels = Array.prototype.slice.call(document.getElementsByClassName("input-card__label"));
+let inputFields = Array.prototype.slice.call(document.getElementsByClassName("input-card__input"));
 
 let weatherArray = [];
 let labelArray = [];
@@ -9,7 +10,17 @@ for(let j=0;j<inputLabel.length;j++) {
   labelArray.push(inputLabel[j].innerHTML);
 }
 
+inputLabel
 
+function check(evt) {
+  var code = evt.charCode;
+  if (code != 0) {
+    if(code < 97 || code > 122) {
+      evt.preventDefault();
+      inputLabels[0].innerHTML = "NOO";
+    }
+  }
+}
 
 function loadDoc() {
     var xhttp = new XMLHttpRequest();
