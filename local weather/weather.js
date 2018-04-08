@@ -1,4 +1,15 @@
+let coordValues = document.getElementsByClassName("input-card__input");
+let submitBtn = document.getElementsByClassName("input-card__button");
+let inputLabel = document.getElementsByClassName("input-card__label");
+
 let weatherArray = [];
+let labelArray = [];
+
+for(let j=0;j<inputLabel.length;j++) {
+  labelArray.push(inputLabel[j].innerHTML);
+}
+
+
 
 function loadDoc() {
     var xhttp = new XMLHttpRequest();
