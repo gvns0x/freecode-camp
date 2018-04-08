@@ -38,12 +38,12 @@ function loadDoc() {
       getWeatherArray(weatherArray);
     }
   };
-  xhttp.open("GET", "https://fcc-weather-api.glitch.me/api/current?lon=55&lat=12", true);
+  xhttp.open("GET", "https://fcc-weather-api.glitch.me/api/current?lon=" + inputFields[0].value + "&lat=" + inputFields[1].value, true);
   xhttp.send();
 }
 
-loadDoc();
+submitBtn[0].addEventListener("click", loadDoc);
 
 function getWeatherArray(weatherArray) {
-  console.log(weatherArray.coord);
+  console.log(weatherArray.weather[0].id);
 }
