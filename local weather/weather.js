@@ -47,6 +47,8 @@ function loadDoc() {
 /* Location */
 let city = Array.prototype.slice.call(document.getElementsByClassName("weather-card__location__city"));
 let country = Array.prototype.slice.call(document.getElementsByClassName("weather-card__location__country"));
+let coordLon = Array.prototype.slice.call(document.getElementsByClassName("weather-card__location__coords__lon"));
+let coordLat = Array.prototype.slice.call(document.getElementsByClassName("weather-card__location__coords__lat"));
 
 /* Temperature */
 let mainTemp = Array.prototype.slice.call(document.getElementsByClassName("weather-card__location__temp__maintemp"));
