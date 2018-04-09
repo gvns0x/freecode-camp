@@ -10,25 +10,25 @@ for (let j = 0; j < inputLabels.length; j++) {
   labelArray.push(inputLabels[j].innerHTML);
 }
 
-inputFields.forEach(function(element, index) {
+inputFields.forEach(function (element, index) {
   element.addEventListener("keypress", function check(evt) {
     let pressedKey = evt.keyCode;
     console.log(pressedKey);
-    if(pressedKey < 48 || pressedKey > 57) {
+    if (pressedKey < 48 || pressedKey > 57) {
       evt.preventDefault();
-        inputLabels[index].classList.add("input-card__label__error");
-        inputLabels[index].innerHTML = "Nope, only numbers";
+      inputLabels[index].classList.add("input-card__label__error");
+      inputLabels[index].innerHTML = "Nope, only numbers";
 
-        setTimeout(function labelsBackToNormal() {
-          inputLabels[index].classList.remove("input-card__label__error");
-          inputLabels[index].innerHTML = labelArray[index];
-        }, 5000);
-      } else {
+      setTimeout(function labelsBackToNormal() {
         inputLabels[index].classList.remove("input-card__label__error");
         inputLabels[index].innerHTML = labelArray[index];
-      }
-    })
-  });
+      }, 5000);
+    } else {
+      inputLabels[index].classList.remove("input-card__label__error");
+      inputLabels[index].innerHTML = labelArray[index];
+    }
+  })
+});
 
 function loadDoc() {
   var xhttp = new XMLHttpRequest();
@@ -44,38 +44,55 @@ function loadDoc() {
 
 /* Variables to show */
 
-    /* Location */
+/* Location */
 let city = Array.prototype.slice.call(document.getElementsByClassName("weather-card__location__city"));
 let country = Array.prototype.slice.call(document.getElementsByClassName("weather-card__location__country"));
 
-    /* Temperature */
+/* Temperature */
 let mainTemp = Array.prototype.slice.call(document.getElementsByClassName("weather-card__location__temp__maintemp"));
 let minTemp = Array.prototype.slice.call(document.getElementsByClassName("weather-card__location__temp__othertemp__minvalue"));
 let maxTemp = Array.prototype.slice.call(document.getElementsByClassName("weather-card__location__temp__othertemp__maxvalue"));
 
 
-    /* Weather */
+/* Weather */
 let mainWeather = Array.prototype.slice.call(document.getElementsByClassName("weather-card__weather__main"));
 let subWeather = Array.prototype.slice.call(document.getElementsByClassName("weather-card__weather__sub"));
 
-    /* Other data */
+/* Other data */
 let humidity = Array.prototype.slice.call(document.getElementsByClassName("weather-card__otherdata__humidityvalue"));
 let wind = Array.prototype.slice.call(document.getElementsByClassName("weather-card__otherdata__windvalue"));
 
-    /* Switch button */
+/* Switch button */
 let switchBtn = Array.prototype.slice.call(document.getElementsByClassName("weather-card__location__temp__switch"));
 
 submitBtn[0].addEventListener("click", loadDoc);
 
-let tempFields = ["mainTemp[0].innerHTML", "minTemp[0].innerHTML", "maxTemp[0].innerHTML"];
+// let tempFields = ["mainTemp[0].innerHTML", "minTemp[0].innerHTML", "maxTemp[0].innerHTML"];
+
+/* If this var is even, show in Celsius - otherwise, Fahrenheit */
+let counter = 0;
+
+function isEven(n) {
+  return n % 2 == 0;
+}
+
+function inFahrenheit(t) {
+  return ((t * (9 / 5)) + 32).toFixed(2);
+}
 
 function getWeatherArray(weatherArray) {
+  if (isEven(counter)) {
+    mainTemp[0].innerHTML = weatherArray.main.temp;
+    minTemp[0].innerHTML = weatherArray.main.temp_min;
+    maxTemp[0].innerHTML = weatherArray.main.temp_max;
+  } else {
+    mainTemp[0].innerHTML = inFahrenheit(weatherArray.main.temp);
+    minTemp[0].innerHTML = inFahrenheit(weatherArray.main.temp_min);
+    maxTemp[0].innerHTML = inFahrenheit(weatherArray.main.temp_max);
+  }
+
   city[0].innerHTML = weatherArray.name + ", ";
   country[0].innerHTML = weatherArray.sys.country;
-
-  mainTemp[0].innerHTML = weatherArray.main.temp;
-  minTemp[0].innerHTML = weatherArray.main.temp_min;
-  maxTemp[0].innerHTML = weatherArray.main.temp_max;
 
   mainWeather[0].innerHTML = weatherArray.weather[0].main;
   subWeather[0].innerHTML = weatherArray.weather[0].description;
@@ -84,22 +101,11 @@ function getWeatherArray(weatherArray) {
   wind[0].innerHTML = weatherArray.wind.speed;
 
   console.log(weatherArray.weather[0].id);
-
-  allTemps = [];
-  allTemps.push(weatherArray.main.temp, weatherArray.main.temp_min, weatherArray.main.temp_max);
-
-  function switchToFar() {
-    newTemps = allTemps.map(function(element) {
-      return element + 2000;
-    });
-    
-    for(let o = 0; o<allTemps.length;o++) {
-      tempFields[o] = newTemps[o];
-    }
-  }
-
-  switchToFar();
-
-
 }
 
+function changeUnit() {
+  return counter = counter + 1;
+}
+
+/* Clicking on the switch button will add +1 to counter */
+switchBtn[0].addEventListener("click", changeUnit);
