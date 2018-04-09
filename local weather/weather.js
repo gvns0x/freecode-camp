@@ -44,6 +44,10 @@ function loadDoc() {
 
 /* Variables to show */
 
+/* Main variables */
+let weatherContent = Array.prototype.slice.call(document.getElementsByClassName("weather-card__content"));
+let weatherEmpty = Array.prototype.slice.call(document.getElementsByClassName("weather-card__empty"));
+
 /* Location */
 let city = Array.prototype.slice.call(document.getElementsByClassName("weather-card__location__city"));
 let country = Array.prototype.slice.call(document.getElementsByClassName("weather-card__location__country"));
