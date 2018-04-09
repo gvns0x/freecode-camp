@@ -6,50 +6,62 @@
 <body>
     <div class="input-card">
         <h1 class="input-card__title">Where are you?</h1>
+        <h3 class="input-card__label">LATITUDE</h3>
+        <input type="text" placeholder="Latitude" class="input-card__input">
         <h3 class="input-card__label">LONGITUDE</h3>
         <input type="text" placeholder="Longitude" class="input-card__input">
-        <h3 class="input-card__label">ALTITUDE</h3>
-        <input type="text" placeholder="Altitude" class="input-card__input">
         <button class="input-card__button">Show me weather ⛅</button>
     </div>
 
     <div class="weather-card">
-        <div class="weather-card__location">
-            <h4 class="weather-card__location__city">Glasbourg, </h4>
-            <h4 class="weather-card__location__country">JP</h4>
-        </div>
-        <div class="weather-card__location__temp">
-            <h1 class="weather-card__location__temp__maintemp">19ºC</h1>
-            <h1 class="weather-card__location__temp__unit"></h1>
-            <button class="weather-card__location__temp__switch">see in ºF</button>
-        </div>
-        <div class="weather-card__location__temp__othertemp">
-            <div class="weather-card__location__temp__othertemp__min">
-                <h4 class="weather-card__location__temp__othertemp__label weather-card__label">MIN</h4>
-                <h4 class="weather-card__location__temp__othertemp__minvalue weather-card__subdata">15C</h4>
+        <div class="weather-card__content">
+            <div class="weather-card__location">
+                <div class="weather-card__location__specific">
+                    <h4 class="weather-card__location__city">Glasbourg, </h4>
+                    <h4 class="weather-card__location__country">JP</h4>
+                </div>
+                <div class="weather-card__location__coords">
+                    <h4 class="weather-card__location__coords__label"> lat: </h4>
+                    <h4 class="weather-card__location__coords__lat"></h4>
+                    <h4 class="weather-card__location__coords__label">lon: </h4>
+                    <h4 class="weather-card__location__coords__lon"></h4>
+                </div>
             </div>
-            <div class="weather-card__location__temp__othertemp__max">
-                <h4 class="weather-card__location__temp__othertemp__label weather-card__label">MAX</h4>
-                <h4 class="weather-card__location__temp__othertemp__maxvalue weather-card__subdata">15C</h4>
+            <div class="weather-card__location__temp">
+                <h1 class="weather-card__location__temp__maintemp">19ºC</h1>
+                <h1 class="weather-card__location__temp__unit"></h1>
+            </div>
+            <div class="weather-card__location__temp__othertemp">
+                <div class="weather-card__location__temp__othertemp__min">
+                    <h4 class="weather-card__location__temp__othertemp__label weather-card__label">MIN</h4>
+                    <h4 class="weather-card__location__temp__othertemp__minvalue weather-card__subdata">15C</h4>
+                </div>
+                <div class="weather-card__location__temp__othertemp__max">
+                    <h4 class="weather-card__location__temp__othertemp__label weather-card__label">MAX</h4>
+                    <h4 class="weather-card__location__temp__othertemp__maxvalue weather-card__subdata">15C</h4>
+                </div>
+            </div>
+            <div class="line-separator"></div>
+            <div class="weather-card__weather">
+                <h2 class="weather-card__weather__main">Clouds</h2>
+                <h4 class="weather-card__weather__sub">broken clouds</h4>
+            </div>
+            <div class="line-separator"></div>
+            <div class="weather-card__otherdata">
+                <div class="weather-card__otherdata__humidity">
+                    <h4 class="weather-card__otherdata__label weather-card__label">HUMIDITY</h4>
+                    <h4 class="weather-card__otherdata__humidityvalue weather-card__subdata">24</h4>
+                </div>
+                <div class="weather-card__otherdata__wind">
+                    <h4 class="weather-card__otherdata__label weather-card__label">WIND SPEED</h4>
+                    <h4 class="weather-card__otherdata__windvalue weather-card__subdata">24</h4>
+                </div>
+            </div>
+            <div class="line-separator"></div>
+            <div class="weather-card__switch">
+                <button class="weather-card__location__temp__switch">see in ºF</button>
             </div>
         </div>
-        <div class="line-separator"></div>
-        <div class="weather-card__weather">
-            <h2 class="weather-card__weather__main">Clouds</h2>
-            <h4 class="weather-card__weather__sub">broken clouds</h4>
-        </div>
-        <div class="line-separator"></div>
-        <div class="weather-card__otherdata">
-            <div class="weather-card__otherdata__humidity">
-                <h4 class="weather-card__otherdata__label weather-card__label">HUMIDITY</h4>
-                <h4 class="weather-card__otherdata__humidityvalue weather-card__subdata">24</h4>
-            </div>
-            <div class="weather-card__otherdata__wind">
-                <h4 class="weather-card__otherdata__label weather-card__label">WIND SPEED</h4>
-                <h4 class="weather-card__otherdata__windvalue weather-card__subdata">24</h4>
-            </div>
-        </div>
-        
     </div>
     <script src="weather.js"></script>
 </body>

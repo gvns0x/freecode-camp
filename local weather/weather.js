@@ -38,7 +38,7 @@ function loadDoc() {
       getWeatherArray(weatherArray);
     }
   };
-  xhttp.open("GET", "https://fcc-weather-api.glitch.me/api/current?lon=" + inputFields[0].value + "&lat=" + inputFields[1].value, true);
+  xhttp.open("GET", "https://fcc-weather-api.glitch.me/api/current?lat=" + inputFields[0].value + "&lon=" + inputFields[1].value, true);
   xhttp.send();
 }
 
@@ -47,6 +47,8 @@ function loadDoc() {
 /* Location */
 let city = Array.prototype.slice.call(document.getElementsByClassName("weather-card__location__city"));
 let country = Array.prototype.slice.call(document.getElementsByClassName("weather-card__location__country"));
+let coordLon = Array.prototype.slice.call(document.getElementsByClassName("weather-card__location__coords__lon"));
+let coordLat = Array.prototype.slice.call(document.getElementsByClassName("weather-card__location__coords__lat"));
 
 /* Temperature */
 let mainTemp = Array.prototype.slice.call(document.getElementsByClassName("weather-card__location__temp__maintemp"));
@@ -86,6 +88,7 @@ function returnTemperatures() {
     mainTemp[0].innerHTML = weatherArray.main.temp;
     minTemp[0].innerHTML = weatherArray.main.temp_min;
     maxTemp[0].innerHTML = weatherArray.main.temp_max;
+    unitTemp[0].innerHTML = "ºC";
   } else {
     mainTemp[0].innerHTML = inFahrenheit(weatherArray.main.temp);
     minTemp[0].innerHTML = inFahrenheit(weatherArray.main.temp_min);
@@ -105,6 +108,9 @@ function getWeatherArray(weatherArray) {
 
   humidity[0].innerHTML = weatherArray.main.humidity;
   wind[0].innerHTML = weatherArray.wind.speed;
+
+  coordLon[0].innerHTML = weatherArray.coord.lon;
+  coordLat[0].innerHTML = weatherArray.coord.lat + "/ ";
 
   console.log(weatherArray.weather[0].id);
 }
