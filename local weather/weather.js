@@ -52,6 +52,7 @@ let country = Array.prototype.slice.call(document.getElementsByClassName("weathe
 let mainTemp = Array.prototype.slice.call(document.getElementsByClassName("weather-card__location__temp__maintemp"));
 let minTemp = Array.prototype.slice.call(document.getElementsByClassName("weather-card__location__temp__othertemp__minvalue"));
 let maxTemp = Array.prototype.slice.call(document.getElementsByClassName("weather-card__location__temp__othertemp__maxvalue"));
+let unitTemp = Array.prototype.slice.call(document.getElementsByClassName("weather-card__location__temp__unit"));
 
 
 /* Weather */
