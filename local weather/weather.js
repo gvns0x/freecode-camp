@@ -109,6 +109,9 @@ function getWeatherArray(weatherArray) {
   humidity[0].innerHTML = weatherArray.main.humidity;
   wind[0].innerHTML = weatherArray.wind.speed;
 
+  coordLon[0].innerHTML = weatherArray.coord.lon;
+  coordLat[0].innerHTML = weatherArray.coord.lat + "/ ";
+
   console.log(weatherArray.weather[0].id);
 }
 

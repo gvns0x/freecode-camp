@@ -125,7 +125,7 @@ body {
     font-weight: 400;
 }
 
-.weather-card__location__coords__lon, .weather-card__location__coords__lon {
+.weather-card__location__coords__lon, .weather-card__location__coords__lat {
     font-size: 12px;
     font-weight: 400;
 }
@@ -195,4 +195,8 @@ body {
 .weather-card__weather__sub {
     font-size: 16px;
     font-weight: 400;
+}
+
+.weather-card__content {
+    display: none;
 }
