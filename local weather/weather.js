@@ -98,6 +98,7 @@ function returnTemperatures() {
     mainTemp[0].innerHTML = inFahrenheit(weatherArray.main.temp);
     minTemp[0].innerHTML = inFahrenheit(weatherArray.main.temp_min);
     maxTemp[0].innerHTML = inFahrenheit(weatherArray.main.temp_max);
+    unitTemp[0].innerHTML = "ºF";
   }
 
   showResults();
