@@ -77,6 +77,7 @@ body {
 .weather-card__location {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
 }
 
 .weather-card__location__city {
@@ -94,7 +95,7 @@ body {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;
     margin-top: 16px;
 }
 
@@ -109,6 +110,33 @@ body {
     font-weight: 400;
 }
 
+.weather-card__location__specific {
+    display: flex;
+    flex-direction: row;
+}
+
+.weather-card__location__coords {
+    display: flex;
+    flex-direction: row;
+}
+
+.weather-card__location__coords__label {
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.weather-card__location__coords__lon, .weather-card__location__coords__lon {
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.weather-card__switch {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
 .weather-card__location__temp__switch {
     padding: 8px 12px;
     font-size: 12px;
@@ -116,6 +144,7 @@ body {
     border: none;
     background-color: rgb(255, 200, 97);
     border-radius: 2px;
+    width: 40%;
 }
 
 .weather-card__location__temp__othertemp {

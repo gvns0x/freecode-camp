@@ -38,7 +38,7 @@ function loadDoc() {
       getWeatherArray(weatherArray);
     }
   };
-  xhttp.open("GET", "https://fcc-weather-api.glitch.me/api/current?lon=" + inputFields[0].value + "&lat=" + inputFields[1].value, true);
+  xhttp.open("GET", "https://fcc-weather-api.glitch.me/api/current?lat=" + inputFields[0].value + "&lon=" + inputFields[1].value, true);
   xhttp.send();
 }
 

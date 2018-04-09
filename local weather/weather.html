@@ -6,17 +6,25 @@
 <body>
     <div class="input-card">
         <h1 class="input-card__title">Where are you?</h1>
-        <h3 class="input-card__label">LONGITUDE</h3>
+        <h3 class="input-card__label">LATITUDE</h3>
         <input type="text" placeholder="Longitude" class="input-card__input">
-        <h3 class="input-card__label">ALTITUDE</h3>
+        <h3 class="input-card__label">LONGITUDE</h3>
         <input type="text" placeholder="Altitude" class="input-card__input">
         <button class="input-card__button">Show me weather ⛅</button>
     </div>
 
     <div class="weather-card">
         <div class="weather-card__location">
+            <div class="weather-card__location__specific">
             <h4 class="weather-card__location__city">Glasbourg, </h4>
             <h4 class="weather-card__location__country">JP</h4>
+            </div>
+            <div class="weather-card__location__coords">
+                <h4 class="weather-card__location__coords__label">lon: </h4>
+                <h4 class="weather-card__location__coords__lon"></h4>
+                <h4 class="weather-card__location__coords__label"> lat: </h4>
+                <h4 class="weather-card__location__coords__lat"></h4>
+            </div>
         </div>
         <div class="weather-card__location__temp">
             <h1 class="weather-card__location__temp__maintemp">19ºC</h1>
@@ -49,8 +57,10 @@
             </div>
         </div>
         <div class="line-separator"></div>
-        <button class="weather-card__location__temp__switch">see in ºF</button>
-        
+        <div class="weather-card__switch">
+            <button class="weather-card__location__temp__switch">see in ºF</button>
+        </div>
+
     </div>
     <script src="weather.js"></script>
 </body>
