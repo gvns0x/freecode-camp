@@ -2,6 +2,7 @@ let coordValues = document.getElementsByClassName("input-card__input");
 let submitBtn = document.getElementsByClassName("input-card__button");
 let inputLabels = Array.prototype.slice.call(document.getElementsByClassName("input-card__label"));
 let inputFields = Array.prototype.slice.call(document.getElementsByClassName("input-card__input"));
+let bodyElement = Array.prototype.slice.call(document.getElementsByTagName("body"));
 
 let weatherArray = [];
 let labelArray = [];
@@ -100,6 +101,7 @@ function returnTemperatures() {
   }
 
   showResults();
+  changeImg();
 }
 
 function getWeatherArray(weatherArray) {
@@ -154,6 +156,19 @@ function showResults(et) {
       console.log("Some fields is empty");
       weatherContent[0].classList.remove("isVisible");
     weatherEmpty[0].classList.remove("isHidden");
+    }
+  })
+}
+
+/* Array of weather possibilities */
+let weatherOptions = ["Rain", "Clouds", "Clear"];
+let weatherImgs = ["rain", "clouds", "clear"];
+
+function changeImg() {
+  let weatherNow = weatherArray.weather[0].main;
+  weatherOptions.forEach(function(v,index) {
+    if(weatherNow == weatherOptions[index]) {
+      bodyElement[0].style.backgroundImage = "url(imgs/" + weatherImgs[index] + ".jpg)";
     }
   })
 }

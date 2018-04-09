@@ -81,10 +81,10 @@ body {
 }
 
 .bg {
-    background-image: url(imgs/clear.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    transition: ease-in 1.5s;
 }
 
 .overlay:before {
@@ -238,6 +238,7 @@ body {
 .isVisible {
     display: flex;
     flex-direction: column;
+    transition: ease-in 1s;
 }
 
 .isHidden {
