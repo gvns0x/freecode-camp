@@ -80,7 +80,7 @@ function inFahrenheit(t) {
   return ((t * (9 / 5)) + 32).toFixed(2);
 }
 
-function getWeatherArray(weatherArray) {
+function returnTemperatures() {
   if (isEven(counter)) {
     mainTemp[0].innerHTML = weatherArray.main.temp;
     minTemp[0].innerHTML = weatherArray.main.temp_min;
@@ -90,6 +90,11 @@ function getWeatherArray(weatherArray) {
     minTemp[0].innerHTML = inFahrenheit(weatherArray.main.temp_min);
     maxTemp[0].innerHTML = inFahrenheit(weatherArray.main.temp_max);
   }
+}
+
+function getWeatherArray(weatherArray) {
+
+  returnTemperatures();
 
   city[0].innerHTML = weatherArray.name + ", ";
   country[0].innerHTML = weatherArray.sys.country;
@@ -103,9 +108,27 @@ function getWeatherArray(weatherArray) {
   console.log(weatherArray.weather[0].id);
 }
 
+
+
 function changeUnit() {
-  return counter = counter + 1;
+  counter = counter + 1;
+  returnTemperatures();
+  return counter;
 }
 
 /* Clicking on the switch button will add +1 to counter */
 switchBtn[0].addEventListener("click", changeUnit);
+switchBtn[0].addEventListener("click", switchStyle);
+
+/* Changing switch button styles */
+let buttonText = ["see in ºF", "see in ºC"];
+
+function switchStyle() {
+  if(isEven(counter)) {
+    switchBtn[0].innerHTML = buttonText[0];
+    switchBtn[0].style.background = "rgb(255, 200, 97)";
+  } else {
+    switchBtn[0].innerHTML = buttonText[1];
+    switchBtn[0].style.background = "rgb(255, 167, 167)";
+  }
+}
