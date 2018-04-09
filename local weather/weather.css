@@ -216,6 +216,7 @@ body {
 
 .isVisible {
     display: flex;
+    flex-direction: column;
 }
 
 .isHidden {

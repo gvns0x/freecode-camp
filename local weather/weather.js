@@ -22,7 +22,7 @@ inputFields.forEach(function (element, index) {
       setTimeout(function labelsBackToNormal() {
         inputLabels[index].classList.remove("input-card__label__error");
         inputLabels[index].innerHTML = labelArray[index];
-      }, 5000);
+      }, 3000);
     } else {
       inputLabels[index].classList.remove("input-card__label__error");
       inputLabels[index].innerHTML = labelArray[index];
@@ -98,6 +98,8 @@ function returnTemperatures() {
     minTemp[0].innerHTML = inFahrenheit(weatherArray.main.temp_min);
     maxTemp[0].innerHTML = inFahrenheit(weatherArray.main.temp_max);
   }
+
+  showResults();
 }
 
 function getWeatherArray(weatherArray) {
@@ -142,4 +144,16 @@ function switchStyle() {
     switchBtn[0].innerHTML = buttonText[1];
     switchBtn[0].style.background = "rgb(255, 167, 167)";
   }
+}
+
+function showResults(et) {
+  inputFields.forEach(function(val,index) {
+    weatherContent[0].classList.add("isVisible");
+    weatherEmpty[0].classList.add("isHidden");
+    if(inputFields[index].value == "") {
+      console.log("Some fields is empty");
+      weatherContent[0].classList.remove("isVisible");
+    weatherEmpty[0].classList.remove("isHidden");
+    }
+  })
 }
