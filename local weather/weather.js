@@ -13,7 +13,7 @@ for (let j = 0; j < inputLabels.length; j++) {
 
 inputFields.forEach(function (element, index) {
   element.addEventListener("keypress", function check(evt) {
-    let pressedKey = evt.keyCode;
+    let pressedKey = evt.which;
     console.log(pressedKey);
     if (pressedKey < 48 || pressedKey > 57) {
       evt.preventDefault();
