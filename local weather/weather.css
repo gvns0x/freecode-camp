@@ -69,9 +69,31 @@ body {
     background-color: #fff;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     border-radius: 2px;
     box-shadow: 0px 2px 4px rgba(0,0,0,0.1);
     padding: 24px;
+    position: relative;
+}
+
+.weather-card * {
+    position: relative;
+}
+
+.bg {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: ease-in 1.5s;
+}
+
+.overlay:before {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255,255,255,0.8);
+    content: '';
+    z-index: -10;
 }
 
 .weather-card__location {
@@ -198,5 +220,27 @@ body {
 }
 
 .weather-card__content {
+    display: none;
+}
+
+.weather-card__empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    justify-content: center;
+}
+
+.weather-card__empty__text {
+    color: rgba(0,0,0,0.2);
+}
+
+.isVisible {
+    display: flex;
+    flex-direction: column;
+    transition: ease-in 1s;
+}
+
+.isHidden {
     display: none;
 }

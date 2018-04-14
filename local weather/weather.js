@@ -2,6 +2,7 @@ let coordValues = document.getElementsByClassName("input-card__input");
 let submitBtn = document.getElementsByClassName("input-card__button");
 let inputLabels = Array.prototype.slice.call(document.getElementsByClassName("input-card__label"));
 let inputFields = Array.prototype.slice.call(document.getElementsByClassName("input-card__input"));
+let bodyElement = Array.prototype.slice.call(document.getElementsByTagName("body"));
 
 let weatherArray = [];
 let labelArray = [];
@@ -12,9 +13,13 @@ for (let j = 0; j < inputLabels.length; j++) {
 
 inputFields.forEach(function (element, index) {
   element.addEventListener("keypress", function check(evt) {
-    let pressedKey = evt.keyCode;
+    let pressedKey = evt.which;
     console.log(pressedKey);
-    if (pressedKey < 48 || pressedKey > 57) {
+    if (pressedKey > 48 && pressedKey < 57 || pressedKey === 45 || pressedKey === 8){
+      inputLabels[index].classList.remove("input-card__label__error");
+      inputLabels[index].innerHTML = labelArray[index];
+    }
+    else {
       evt.preventDefault();
       inputLabels[index].classList.add("input-card__label__error");
       inputLabels[index].innerHTML = "Nope, only numbers";
@@ -22,11 +27,8 @@ inputFields.forEach(function (element, index) {
       setTimeout(function labelsBackToNormal() {
         inputLabels[index].classList.remove("input-card__label__error");
         inputLabels[index].innerHTML = labelArray[index];
-      }, 5000);
-    } else {
-      inputLabels[index].classList.remove("input-card__label__error");
-      inputLabels[index].innerHTML = labelArray[index];
-    }
+      }, 3000);
+    } 
   })
 });
 
@@ -43,6 +45,10 @@ function loadDoc() {
 }
 
 /* Variables to show */
+
+/* Main variables */
+let weatherContent = Array.prototype.slice.call(document.getElementsByClassName("weather-card__content"));
+let weatherEmpty = Array.prototype.slice.call(document.getElementsByClassName("weather-card__empty"));
 
 /* Location */
 let city = Array.prototype.slice.call(document.getElementsByClassName("weather-card__location__city"));
@@ -93,7 +99,11 @@ function returnTemperatures() {
     mainTemp[0].innerHTML = inFahrenheit(weatherArray.main.temp);
     minTemp[0].innerHTML = inFahrenheit(weatherArray.main.temp_min);
     maxTemp[0].innerHTML = inFahrenheit(weatherArray.main.temp_max);
+    unitTemp[0].innerHTML = "ºF";
   }
+
+  showResults();
+  changeImg();
 }
 
 function getWeatherArray(weatherArray) {
@@ -138,4 +148,29 @@ function switchStyle() {
     switchBtn[0].innerHTML = buttonText[1];
     switchBtn[0].style.background = "rgb(255, 167, 167)";
   }
+}
+
+function showResults(et) {
+  inputFields.forEach(function(val,index) {
+    weatherContent[0].classList.add("isVisible");
+    weatherEmpty[0].classList.add("isHidden");
+    if(inputFields[index].value == "") {
+      console.log("Some fields is empty");
+      weatherContent[0].classList.remove("isVisible");
+    weatherEmpty[0].classList.remove("isHidden");
+    }
+  })
+}
+
+/* Array of weather possibilities */
+let weatherOptions = ["Rain", "Clouds", "Clear"];
+let weatherImgs = ["rain", "clouds", "clear"];
+
+function changeImg() {
+  let weatherNow = weatherArray.weather[0].main;
+  weatherOptions.forEach(function(v,index) {
+    if(weatherNow == weatherOptions[index]) {
+      bodyElement[0].style.backgroundImage = "url(imgs/" + weatherImgs[index] + ".jpg)";
+    }
+  })
 }

@@ -3,7 +3,7 @@
     <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono:400,600" rel="stylesheet">
 </head>
 
-<body>
+<body class="overlay bg">
     <div class="input-card">
         <h1 class="input-card__title">Where are you?</h1>
         <h3 class="input-card__label">LATITUDE</h3>
@@ -12,8 +12,10 @@
         <input type="text" placeholder="Longitude" class="input-card__input">
         <button class="input-card__button">Show me weather ⛅</button>
     </div>
-
     <div class="weather-card">
+        <div class="weather-card__empty">
+            <h3 class="weather-card__empty__text">Specify some coordinates</h3>
+        </div>
         <div class="weather-card__content">
             <div class="weather-card__location">
                 <div class="weather-card__location__specific">
@@ -28,7 +30,7 @@
                 </div>
             </div>
             <div class="weather-card__location__temp">
-                <h1 class="weather-card__location__temp__maintemp">19ºC</h1>
+                <h1 class="weather-card__location__temp__maintemp"></h1>
                 <h1 class="weather-card__location__temp__unit"></h1>
             </div>
             <div class="weather-card__location__temp__othertemp">
@@ -62,6 +64,7 @@
                 <button class="weather-card__location__temp__switch">see in ºF</button>
             </div>
         </div>
+        <div class="weather-card__overlay"></div>
     </div>
     <script src="weather.js"></script>
 </body>
