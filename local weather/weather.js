@@ -15,7 +15,11 @@ inputFields.forEach(function (element, index) {
   element.addEventListener("keypress", function check(evt) {
     let pressedKey = evt.which;
     console.log(pressedKey);
-    if (pressedKey < 48 || pressedKey > 57) {
+    if (pressedKey > 48 && pressedKey < 57 || pressedKey === 45 || pressedKey === 8){
+      inputLabels[index].classList.remove("input-card__label__error");
+      inputLabels[index].innerHTML = labelArray[index];
+    }
+    else {
       evt.preventDefault();
       inputLabels[index].classList.add("input-card__label__error");
       inputLabels[index].innerHTML = "Nope, only numbers";
@@ -24,10 +28,7 @@ inputFields.forEach(function (element, index) {
         inputLabels[index].classList.remove("input-card__label__error");
         inputLabels[index].innerHTML = labelArray[index];
       }, 3000);
-    } else {
-      inputLabels[index].classList.remove("input-card__label__error");
-      inputLabels[index].innerHTML = labelArray[index];
-    }
+    } 
   })
 });
 
