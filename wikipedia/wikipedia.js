@@ -21,6 +21,7 @@ function setup() {
         loadJSON(searchUrl, getData, 'jsonp');
 
         function getData(data) {
+            $(".searchbox__results").html("");
             let searchTitles = data["1"];
             let searchDescriptions = data["2"];
             let searchLinks = data["3"];
