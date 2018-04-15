@@ -13,6 +13,19 @@ function setup() {
         }
     })
 
+    input.addEventListener("keyup", activateButton);
+
+    function activateButton(ev) {
+        if(input.value === "") {
+            button.classList.add("lowOpacity");
+            return null;
+        } else {
+            button.classList.remove("lowOpacity");
+        }
+    }
+
+    activateButton();
+
     function generateUrl() {
         let searchUrl = wikiUrl + input.value;
         console.log(searchUrl);

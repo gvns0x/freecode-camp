@@ -19,6 +19,10 @@ a {
     grid-template-columns: 1fr 4fr 1fr;
 }
 
+.lowOpacity {
+    opacity: 0.3;
+}
+
 .searchbox__search {
     grid-column: 1/4;
     display: grid;
