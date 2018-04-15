@@ -6,6 +6,13 @@ function setup() {
     /* When input changes, get new searchUrl */
     button.addEventListener("click", generateUrl);
 
+    input.addEventListener("keyup", function enterSearch(ev) {
+        /* In case Enter key is pressed, search for results */
+        if(ev.which === 13) {
+            generateUrl();
+        }
+    })
+
     function generateUrl() {
         let searchUrl = wikiUrl + input.value;
         console.log(searchUrl);
