@@ -16,11 +16,13 @@ function setup() {
         function getData(data) {
             let searchTitles = data["1"];
             let searchLinks = data["3"];
+            console.log(data);
 
-            searchTitles.forEach(function(title, index) {
-                console.log(title);
-                $(".searchbox__results").append("<h2 class='searchbox__results__title'>" + title + "</h2>")
-            })
+            $(".searchbox__results").append("<h1 class='searchbox__results__intro'>There are " + (searchLinks.length - 1) + " results for " + searchTitles[0] + "</h1>");
+
+            for (let i = 0; i < searchTitles.length - 1; i++) {
+                $(".searchbox__results").append("<div class='search__results__item'> <h2 class='searchbox__results__title'>" + searchTitles[i+1] + "</h2></div>");
+            }
         }
     }
 }
