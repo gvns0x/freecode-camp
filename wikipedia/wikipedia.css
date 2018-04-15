@@ -1,3 +1,7 @@
 .searchbox__input {
     outline: 1px solid #000;
 }
+
+.searchbox__button {
+    background-color: aqua;
+}
