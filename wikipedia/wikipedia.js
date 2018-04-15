@@ -16,7 +16,11 @@ function setup() {
         function getData(data) {
             let searchTitles = data["1"];
             let searchLinks = data["3"];
-            console.log(searchLinks);
+
+            searchTitles.forEach(function(title, index) {
+                console.log(title);
+                $(".searchbox__results").append("<h2 class='searchbox__results__title'>" + title + "</h2>")
+            })
         }
     }
 }
