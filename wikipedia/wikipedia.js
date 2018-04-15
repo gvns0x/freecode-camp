@@ -22,9 +22,9 @@ function setup() {
             $(".searchbox__results").append("<h1 class='searchbox__results__intro'>There are " + (searchLinks.length - 1) + " results for " + searchTitles[0] + "</h1>");
 
             for (let i = 0; i < searchTitles.length - 1; i++) {
-                $(".searchbox__results").append("<div class='searchbox__results__item'> <h2 class='searchbox__results__title'>"
+                $(".searchbox__results").append("<a href='" + searchLinks[i + 1] + "' target='_blank'> <div class='searchbox__results__item'> <h2 class='searchbox__results__title'>"
                 + searchTitles[i+1] +
-                "</h2><p class='searchbox__results__description'>" + searchDescriptions[i + 1] + "</div>");
+                "</h2><p class='searchbox__results__description'>" + searchDescriptions[i + 1] + "</div></a>");
             }
         }
     }
