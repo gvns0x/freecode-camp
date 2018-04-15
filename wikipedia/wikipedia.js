@@ -14,7 +14,9 @@ function setup() {
         loadJSON(searchUrl, getData, 'jsonp');
 
         function getData(data) {
-            console.log(data);
+            let searchTitles = data["1"];
+            let searchLinks = data["3"];
+            console.log(searchLinks);
         }
     }
 }
