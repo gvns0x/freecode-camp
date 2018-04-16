@@ -8,7 +8,7 @@ function setup() {
 
     input.addEventListener("keyup", function enterSearch(ev) {
         /* In case Enter key is pressed, search for results */
-        if(ev.which === 13) {
+        if (ev.which === 13 && input.value !== "") {
             generateUrl();
         }
     })
@@ -16,9 +16,9 @@ function setup() {
     input.addEventListener("keyup", activateButton);
 
     function activateButton(ev) {
-        if(input.value === "") {
+        if (input.value === "") {
             button.classList.add("lowOpacity");
-            return null;
+            return;
         } else {
             button.classList.remove("lowOpacity");
         }
@@ -34,32 +34,34 @@ function setup() {
         loadJSON(searchUrl, getData, 'jsonp');
 
         function getData(data) {
-            $(".searchbox__results").html("");
-            let searchTitles = data["1"];
-            let searchDescriptions = data["2"];
-            let searchLinks = data["3"];
-            console.log(data);
+            if (input.value !== "") {
+                $(".searchbox__results").html("");
+                let searchTitles = data["1"];
+                let searchDescriptions = data["2"];
+                let searchLinks = data["3"];
+                console.log(data);
 
 
-            $(".searchbox__results").append("<h1 class='searchbox__results__intro'>There are " + (searchLinks.length - 1) + " results for " + searchTitles[0] + "</h1>");
+                $(".searchbox__results").append("<h1 class='searchbox__results__intro'>There are " + (searchLinks.length - 1) + " results for " + searchTitles[0] + "</h1>");
 
-            for (let i = 0; i < searchTitles.length - 1; i++) {
-                let descLength = 150;
-                $(".searchbox__results").append("<a href='" + searchLinks[i + 1] + "' target='_blank'> <div class='searchbox__results__item'> <h2 class='searchbox__results__title'>"
-                + searchTitles[i+1] +
-                "</h2><p class='searchbox__results__description'>" + smallDesc() + "</div></a>");
+                for (let i = 0; i < searchTitles.length - 1; i++) {
+                    let descLength = 150;
+                    $(".searchbox__results").append("<a href='" + searchLinks[i + 1] + "' target='_blank'> <div class='searchbox__results__item'> <h2 class='searchbox__results__title'>" +
+                        searchTitles[i + 1] +
+                        "</h2><p class='searchbox__results__description'>" + smallDesc() + "</div></a>");
 
-                /* If the description is bigger or == to descLength, add "..." at the end */
-                function smallDesc() {
-                    let brief = searchDescriptions[i + 1].slice(0,descLength);
-                    if(searchDescriptions[i+1].length < descLength) {
-                        return searchDescriptions[i + 1];
-                    } else {
-                        return brief + "...";
+                    /* If the description is bigger or == to descLength, add "..." at the end */
+                    function smallDesc() {
+                        let brief = searchDescriptions[i + 1].slice(0, descLength);
+                        if (searchDescriptions[i + 1].length < descLength) {
+                            return searchDescriptions[i + 1];
+                        } else {
+                            return brief + "...";
+                        }
+                        console.log(brief.length);
                     }
-                    console.log(brief.length);
+                    smallDesc();
                 }
-                smallDesc();
             }
         }
     }
